@@ -6,6 +6,8 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  --item: #f1f1f1;
+  --text: rgb(44, 32, 32);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -13,21 +15,54 @@
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
+    --item: #38373a;
+    --text: #f1f1f1;
   }
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  gap: 3rem;
   background: linear-gradient(
       to bottom,
       transparent,
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+  color: rgb(var(--foreground-rgb));
+  overflow-x: clip;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+  .bg-default {
+    background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+  }
+
+  .bg-item {
+    background: var(--item);
+  }
+
+  .bg-textColor {
+    background: var(--text);
+  }
+
+  .text-textColor {
+    color: var(--text);
+  }
+
+  .border-textColor {
+    border-color: var(--text);
   }
 }
